@@ -18,21 +18,21 @@ public class DecodeString {
 				// main
 
 				// pop util meet [
-				String loopString = "";
+				StringBuilder loopString = new StringBuilder();
 				while (stack.peek() != '[') {
-					loopString = stack.pop() + loopString;
+					loopString.insert(0, stack.pop());
 				}
 
 				// remove
 				stack.pop();
 
 				// get number
-				String numberStr = "";
+				StringBuilder numberStr = new StringBuilder();
 				while (!stack.isEmpty() && Character.isDigit(stack.peek())) {
-					numberStr = stack.pop() + numberStr;
+					numberStr.insert(0, stack.pop());
 				}
-				int nLoop = Integer.parseInt(numberStr);
-				loopString = loopString.repeat(nLoop);
+				int nLoop = Integer.parseInt(numberStr.toString());
+				loopString = new StringBuilder(loopString.toString().repeat(nLoop));
 
 				// add result to stack
 				for (int j = 0; j < loopString.length(); j++) {
@@ -42,11 +42,11 @@ public class DecodeString {
 				stack.push(c);
 			}
 		}
-		String result = "";
+		StringBuilder result = new StringBuilder();
 		while (!stack.isEmpty()) {
-			result = stack.pop() + result;
+			result.insert(0, stack.pop());
 		}
 
-		return result;
+		return result.toString();
 	}
 }
