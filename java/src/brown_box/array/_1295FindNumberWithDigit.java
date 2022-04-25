@@ -1,7 +1,7 @@
 package brown_box.array;
 
 // 1295: https://leetcode.com/problems/find-numbers-with-even-number-of-digits
-public class FindNumberWithDigit {
+public class _1295FindNumberWithDigit {
 	public static void main(String[] args) {
 		int[] numbers = {1, 2, 3, 4, 55};
 
